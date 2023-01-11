@@ -10,6 +10,7 @@ const authUser = useAuthStore();
 onMounted(async () => {
   await authUser.getUser();
 });
+
 </script>
 
 <template>

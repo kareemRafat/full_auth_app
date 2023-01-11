@@ -25,11 +25,14 @@ const useAuthStore = defineStore("auth", {
       let formData = new FormData(form);
 
       try {
+        this.getUser();
         await csrfCookie();
         const res = await axios.post("api/login", formData);
         localStorage.setItem("Auth", true);
         this.router.push("/"); // used [this] beacuse of markRaw(router) in main.js
-
+        
+        
+        
         form.reset();
       } catch (err) {
         this.errors = "wrong creds";
