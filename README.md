@@ -24,7 +24,8 @@ axios.defaults.headers.common["Accept"] = "application/json";
 ```
 
 ```php
-B - You should ensure that your application's CORS configuration is returning the Access-Control-Allow-Credentials header with a value of True. This may be accomplished by setting the supports_credentials option within your application's config/cors.php configuration file to true.
+B - You should ensure that your application's CORS configuration is returning the Access-Control-Allow-Credentials header with a value of True.
+This may be accomplished by setting the supports_credentials option within your application's config/cors.php configuration file to true.
 ```
 
 ```php
