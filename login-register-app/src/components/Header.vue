@@ -27,9 +27,6 @@
 import useAuthStore from "@/stores/AuthStore";
 
 const authUser = useAuthStore();
-authUser.getUser();
-
-
 // the logic of logout action moved to AuthStore of pinia actions
 // call the store to use logout method in @click <a logout
 </script>

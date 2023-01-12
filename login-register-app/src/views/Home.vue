@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from "vue";
 import Header from "@/components/Header.vue";
-import Home from "@/components/HomeBody.vue";
+import HomeBody from "@/components/HomeBody.vue";
 import axios from "axios";
 
 import useAuthStore from "@/stores/AuthStore";
@@ -9,16 +9,16 @@ const authUser = useAuthStore();
 
 onMounted(async () => {
   await authUser.getUser();
+  // to send data to home
 });
-
 </script>
 
 <template>
   <div>
-    <Header></Header>
     <Suspense>
       <div>
-        <Home :loggedUser="authUser.user"></Home>
+        <Header></Header>
+        <HomeBody :loggedUser="authUser.user"></HomeBody>
       </div>
       <template #fallback>
         <div class="parent">

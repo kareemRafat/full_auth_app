@@ -1,5 +1,7 @@
 # full_auth_app
 
+
+
 # Laravel – Vue Authentication system – Backend – Frontend
 
 # Backend

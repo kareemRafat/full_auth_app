@@ -13,6 +13,8 @@
 <script setup>
 import { ref } from "vue";
 
+// this components are made to use async <suspense></suspense>
+
 // if the await is the first thing in the script setup you need suspense
 await new Promise((r) => setTimeout(r, 2000)); // to make the page wait 2 s
 
