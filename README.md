@@ -11,10 +11,14 @@
 ### 3 – Configure Cors Policies :
 
 ```php
-A - We must make both back and front end in the same domain http://localhost
+A - We must make both back and front end in the same domain
+ http://localhost
 The front >> http://localhost:5173
 The back >> http://localhost:8000
-In order to authenticate, your SPA and API must share the same top-level domain. However, they may be placed on different subdomains. Additionally, you should ensure that you send the Accept: application/json header with your request.
+In order to authenticate, your SPA and API must share the same top-level domain.
+However, they may be placed on different subdomains.
+Additionally, you should ensure that you send the Accept: application/json header with your request.
+
 To default it with all requests in axios ( in src/main.js )
 axios.defaults.headers.common["Accept"] = "application/json";
 ```
