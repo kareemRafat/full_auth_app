@@ -58,3 +58,15 @@ When login or register since your application already made a request to the /san
 
 To protect a route with sanctum use :
 Route::middleware('auth:sanctum')
+
+
+```js
+#Vue
+1- pinia-plugin-persistedstate
+//https://prazdevs.github.io/pinia-plugin-persistedstate/guide/
+2- or useStorage
+https://vueuse.org/core/useStorage/
+3 - or Manual way
+
+https://www.youtube.com/watch?v=059fh7Gobho
+```
