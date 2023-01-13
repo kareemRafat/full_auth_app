@@ -3,7 +3,8 @@ import App from "./App.vue";
 import router from "./routers";
 import axios from "axios";
 import { createPinia } from "pinia";
-import { markRaw } from 'vue'
+import { markRaw } from 'vue';
+import PersistPiniaState from '@/composable/PersistPiniaState';
 
 // assets
 import "@/assets/css/main.css";
@@ -26,6 +27,11 @@ const pinia = createPinia();
  * its name must be store
  */
 pinia.use(({ store }) => { store.router = markRaw(router) })
+
+
+// localstorage
+PersistPiniaState(pinia);
+
 
 createApp(App)
   .use(router)
