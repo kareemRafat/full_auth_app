@@ -19,7 +19,7 @@ const useAuthStore = defineStore("auth", {
       this.AuthUser = res.data;
     },
 
-    async handleLogin(event) {
+    async handleLogin(event, params) {
       const form = event.target;
 
       let formData = new FormData(form);
@@ -27,12 +27,17 @@ const useAuthStore = defineStore("auth", {
       try {
         await csrfCookie();
         const res = await axios.post("api/login", formData);
-        localStorage.setItem("Auth", true);
-        this.router.push("/"); // used [this] beacuse of markRaw(router) in main.js
-        
-        
-        
+
+        // to set the auth user in pinia
+        await this.getUser();
+
+        /** if there is query param redirect from meta requiresAuth or not */
+        const redirectPath = params || "/";
+        this.router.push(redirectPath); // used [this] beacuse of markRaw(router) in main.js
+
         form.reset();
+
+        this.errors = "";
       } catch (err) {
         this.errors = "wrong creds";
       }
@@ -45,6 +50,7 @@ const useAuthStore = defineStore("auth", {
       try {
         await csrfCookie();
         await axios.post("api/register", formData);
+
         this.router.push("/"); // used [this] beacuse of markRaw(router) in main.js
       } catch (err) {
         this.errors = err.response.data.errors;

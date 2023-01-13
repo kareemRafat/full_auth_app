@@ -1,14 +1,12 @@
 <template>
   <body>
-    <Header></Header>
     <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
       <div class="wrapper wrapper--w680">
         <div class="card card-4">
           <div class="card-body">
             <div
               v-if="authUser.error"
-              style="
-                margin-bottom: 30px;
+              style="margin-bottom: 30px;
                 color: white;
                 font-weigh: bold;
                 background-color: tomato;
@@ -18,7 +16,7 @@
               <p>{{ authUser.error }}</p>
             </div>
             <h2 class="title">Login Form</h2>
-            <form @submit.prevent="authUser.handleLogin($event)">
+            <form @submit.prevent="authUser.handleLogin($event, this.$route.query.redirect)">
               <div class="col-6">
                 <div class="input-group">
                   <label class="label">Email</label>

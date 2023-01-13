@@ -17,6 +17,15 @@
           <li>
             <a @click.prevent="authUser.logout" class="links">Logout</a>
           </li>
+          <li>
+            <router-link to="/products" class="links">Products</router-link>
+          </li>
+          <li>
+            <router-link to="/anyWhere" class="links">Non existing route</router-link>
+          </li>
+          <li>
+            <router-link to="/register" class="links">register</router-link>
+          </li>
         </template>
       </ul>
     </div>
@@ -29,6 +38,8 @@ import useAuthStore from "@/stores/AuthStore";
 const authUser = useAuthStore();
 // the logic of logout action moved to AuthStore of pinia actions
 // call the store to use logout method in @click <a logout
+
+
 </script>
 
 <style>
