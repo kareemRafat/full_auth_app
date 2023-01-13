@@ -30,7 +30,7 @@ pinia.use(({ store }) => {
   store.router = markRaw(router);
 });
 
-// localstorage first way -- manual way
+// localstorage first way -- manual way in composable folder
 // PersistPiniaState(pinia);
 // second way import { useStorage } from "@vueuse/core" in pinia store file
 
