@@ -60,8 +60,8 @@ To protect a route with sanctum use :
 Route::middleware('auth:sanctum')
 
 
-```js
 #Vue
+```js
 1- pinia-plugin-persistedstate
 //https://prazdevs.github.io/pinia-plugin-persistedstate/guide/
 2- or useStorage
