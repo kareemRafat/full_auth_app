@@ -3,8 +3,8 @@ import App from "./App.vue";
 import router from "./routers";
 import axios from "axios";
 import { createPinia } from "pinia";
-import { markRaw } from 'vue';
-import PersistPiniaState from '@/composable/PersistPiniaState';
+import { markRaw } from "vue";
+import PersistPiniaState from "@/composable/PersistPiniaState";
 
 // assets
 import "@/assets/css/main.css";
@@ -26,14 +26,12 @@ const pinia = createPinia();
  * When adding external properties, class instances that come from other libraries, or simply things that are not reactive, you should wrap the object with markRaw()
  * its name must be store
  */
-pinia.use(({ store }) => { store.router = markRaw(router) })
+pinia.use(({ store }) => {
+  store.router = markRaw(router);
+});
 
+// localstorage first way -- manual way
+// PersistPiniaState(pinia);
+// second way import { useStorage } from "@vueuse/core" in pinia store file
 
-// localstorage
-PersistPiniaState(pinia);
-
-
-createApp(App)
-  .use(router)
-  .use(pinia)
-  .mount("#app");
+createApp(App).use(router).use(pinia).mount("#app");

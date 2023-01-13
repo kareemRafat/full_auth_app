@@ -1,12 +1,14 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import csrfCookie from "@/composable/csrfCookie";
+import { useStorage } from "@vueuse/core";
 
 const useAuthStore = defineStore("auth", {
-  state: () => ({
-    AuthUser: "",
-    errors: "",
-  }),
+  state: () =>
+    useStorage("user", {
+      AuthUser: "",
+      errors: "",
+    }),
 
   getters: {
     user: (state) => state.AuthUser,
@@ -64,6 +66,9 @@ const useAuthStore = defineStore("auth", {
 
       // reset the user to ""
       this.AuthUser = "";
+
+      // remove localstorage item the placed when login using useStorage
+      localStorage.removeItem('user');
     },
   },
 });
