@@ -4,8 +4,8 @@ import router from "./routers";
 import axios from "axios";
 import { createPinia } from "pinia";
 import { markRaw } from "vue";
-import PersistPiniaState from "@/composable/PersistPiniaState";
-
+import PersistPiniaState from "@/composable/PersistPiniaState";// manual way
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';//commuing plugin
 // assets
 import "@/assets/css/main.css";
 
@@ -30,8 +30,11 @@ pinia.use(({ store }) => {
   store.router = markRaw(router);
 });
 
+
 // localstorage first way -- manual way in composable folder
 // PersistPiniaState(pinia);
 // second way import { useStorage } from "@vueuse/core" in pinia store file
+// third way use piniaPluginPersistedstate community plgin
+pinia.use(piniaPluginPersistedstate);
 
 createApp(App).use(router).use(pinia).mount("#app");

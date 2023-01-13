@@ -4,11 +4,15 @@ import csrfCookie from "@/composable/csrfCookie";
 import { useStorage } from "@vueuse/core";
 
 const useAuthStore = defineStore("auth", {
-  state: () =>
-    useStorage("user", {
-      AuthUser: "",
-      errors: "",
-    }),
+  state: () => ({
+    AuthUser: "",
+    errors: "",
+  }),
+    // useStorage("user", {
+    //   AuthUser: "",
+    //   errors: "",
+    // }),
+    
 
   getters: {
     user: (state) => state.AuthUser,
@@ -67,10 +71,15 @@ const useAuthStore = defineStore("auth", {
       // reset the user to ""
       this.AuthUser = "";
 
-      // remove localstorage item the placed when login using useStorage
-      localStorage.removeItem('user');
+      // remove localstorage item the placed when login using useStorage [required]
+      // localStorage.removeItem('user');
     },
   },
-});
+  // when using pinia Plugin Persisted state 
+  //https://prazdevs.github.io/pinia-plugin-persistedstate/guide/
+  persist : true ,
+}
+   
+);
 
 export default useAuthStore;
